@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     diff-lcs (1.2.5)
+    json (1.8.2)
     rspec (3.2.0)
       rspec-core (~> 3.2.0)
       rspec-expectations (~> 3.2.0)
@@ -15,12 +16,17 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.2.0)
     rspec-support (3.2.2)
+    rubytree (0.9.6)
+      json (~> 1.8)
+      structured_warnings (~> 0.2)
+    structured_warnings (0.2.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   rspec
+  rubytree
 
 BUNDLED WITH
    1.10.2
