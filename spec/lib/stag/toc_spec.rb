@@ -19,7 +19,8 @@ describe Stag::TOC do
 	describe '.to_s' do
 		it 'prints a text representation of the TOC' do
 			toc = Stag::TOC.new
-			expect(toc.to_s).to eq("* ROOT")		  
+			captured_output = capture_stdout { toc.to_s }
+			expect(captured_output).to eq("☆ \n")
 		end
 	end
 
