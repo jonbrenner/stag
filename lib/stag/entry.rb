@@ -14,9 +14,7 @@ module Stag
 		# Pretty prints the (sub)tree rooted at this node.
     #
     # @param [Integer] level The indentation level (4 spaces) to start with.
-    # @param [Integer] max_depth optional maximum depth at which the printing
-    #                            with stop.
-    def print_tree(level = 0, max_depth = nil)
+    def print_tree(level = 0)
       line = ''
       if is_root?
         line << '☆'
@@ -32,10 +30,7 @@ module Stag
       line << " (#{path})" if path
       puts line 
 
-      # Exit if the max level is defined, and reached.
-      return unless max_depth.nil? || level < max_depth
-
-      children { |child| child.print_tree(level + 1, max_depth) if child } # Child might be 'nil'
+      children { |child| child.print_tree(level + 1) if child } # Child might be 'nil'
       return
     end
   end
