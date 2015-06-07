@@ -7,14 +7,6 @@ describe Stag::Entry do
 		it { is_expected.to have_attributes(heading: nil, link: nil, path: nil)}
   end
 
-  describe '.heading' do
-    it 'should get the entry\'s heading' do
-      entry = Stag::Entry.new(heading: "some heading")
-
-      expect(entry.heading).to eq("some heading")
-    end
-  end
-
   describe '<<' do
     it 'should add another Stag::Entry to the Entry subtree' do
       parent = Stag::Entry.new(heading: "ROOT")
