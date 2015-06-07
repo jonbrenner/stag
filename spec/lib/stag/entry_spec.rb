@@ -1,10 +1,10 @@
 require_relative "../../spec_helper"
 
 describe Stag::Entry do
-  
+	it { is_expected.to have_attributes(heading: nil, link: nil, path: nil)}
+
   describe '.new( heading: nil, link: nil, path: nil )' do
 		it { is_expected.to be_a_kind_of(Tree::TreeNode) }
-		it { is_expected.to have_attributes(heading: nil, link: nil, path: nil)}
   end
 
   describe '<<' do
@@ -26,18 +26,15 @@ describe Stag::Entry do
 			entry << child
 			entry << Stag::Entry.new(heading: "a child3")
 			
-			captured_output = capture_stdout { entry.print_tree }	
-			
-			expect(captured_output).to eq("☆ \n├───┬ a child\n│   ├──── a child1\n│   └──── a child2\n└──── a child3\n")		  
+			tree = "☆ \n├───┬ a child\n│   ├──── a child1\n│   └──── a child2\n└──── a child3\n"
+			expect{entry.print_tree}.to output(tree).to_stdout
 		end
 
 		context 'when an entry has a path' do
 		  it 'includes the path in the tree output' do
 				entry = Stag::Entry.new(heading: "", path: "a_path.txt")
 
-				captured_output = capture_stdout { entry.print_tree }	
-
-				expect(captured_output).to match(/(a_path.txt)/)
+				expect{entry.print_tree}.to output(/(a_path.txt)/).to_stdout
 		  end
 		end
 	end

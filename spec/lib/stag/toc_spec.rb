@@ -18,9 +18,7 @@ describe Stag::TOC do
 
 	describe '.to_s' do
 		it 'prints a text representation of the TOC' do
-			toc = Stag::TOC.new
-			captured_output = capture_stdout { toc.to_s }
-			expect(captured_output).to eq("☆ \n")
+			expect{Stag::TOC.new.to_s}.to output("☆ \n").to_stdout
 		end
 	end
 
