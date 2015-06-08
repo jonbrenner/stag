@@ -1,7 +1,7 @@
 require_relative "../../spec_helper"
 
 describe Stag::Entry do
-	it { is_expected.to have_attributes(heading: nil, link: nil, path: nil)}
+	it { is_expected.to have_attributes(heading: nil, level: nil, link: nil, path: nil)}
 
   describe '.new( heading: nil, link: nil, path: nil )' do
 		it { is_expected.to be_a_kind_of(Tree::TreeNode) }
