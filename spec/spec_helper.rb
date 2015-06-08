@@ -1,7 +1,8 @@
 require_relative '../lib/stag'
 
-require 'rspec'
+require "rspec"
 require "stringio"
+require "pry"
 
 RSpec.configure do |config|
   # Use color in STDOUT
