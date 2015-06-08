@@ -3,8 +3,6 @@ require_relative '../lib/stag'
 require 'rspec'
 require "stringio"
 
-FIXTURES_PATH = File.join(Dir.pwd, "spec", "fixtures")
-
 RSpec.configure do |config|
   # Use color in STDOUT
   config.color = true
@@ -15,4 +13,9 @@ RSpec.configure do |config|
 
   # Use the specified formatter
   config.formatter = :documentation # :progress, :html, :textmate 
+
+  # My Stuff
+  config.add_setting :fixtures_path
+
+  config.fixtures_path = File.expand_path("fixtures", __dir__)
 end
